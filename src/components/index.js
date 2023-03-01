@@ -6,3 +6,4 @@ export { default as ControlPanel } from './ControlPanel';
 export { default as Registered } from './Registered';
 export { default as NoSeatsAvailable } from './NoSeatsAvailable';
 export { default as Event } from './Event';
+export { default as Footer } from './Footer';

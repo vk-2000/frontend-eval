@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Bookmark from '../Bookmark';
 import Registered from '../Registered';
 import NoSeatsAvailable from '../NoSeatsAvailable';
+import getTime from '../../utils/common';
 
 const EventCard = ({
   event,
@@ -33,14 +34,14 @@ const EventCard = ({
   };
 
   const getRegistration = () => {
-    if (allowRegistration) {
+    if (allowRegistration && event.areSeatsAvailable) {
       return <button className="btn-register" onClick={(e) => { e.stopPropagation(); handleRegistrationChange(); }} type="button">{event.isRegistered ? 'Unregister' : 'Register'}</button>;
     }
     return <div />;
   };
 
   return (
-    <div onClick={() => navigate(`events/${event.id}`)} className="event-card">
+    <div onClick={() => navigate(`events/${event.id}`)} data-testid="event-card" className="event-card">
       <div className="event-img-container">
         <img src={event.imgUrl} alt={event.name} className="event-img" />
       </div>
@@ -58,7 +59,7 @@ const EventCard = ({
       <div className="event-date">
         DATE:
         {' '}
-        {event.datetime}
+        {getTime(event.datetime)}
       </div>
       <div className="event-info">
         <div className="event-availablity">

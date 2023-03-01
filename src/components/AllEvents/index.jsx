@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GET_ALL_EVENTS, UPDATE_EVENT } from '../../constants/apiEndPoints';
 import makeRequest from '../../utils/makeRequest';
 import ControlPanel from '../ControlPanel';
@@ -7,14 +8,17 @@ import './AllEvents.css';
 
 const AllEvents = () => {
   const [allEvents, setAllEvents] = useState([]);
+  const navigate = useNavigate();
   const [selectedEvents, setSelectedEvents] = useState(allEvents);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('all');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    makeRequest(GET_ALL_EVENTS).then((res) => {
+    makeRequest(GET_ALL_EVENTS, {}, navigate).then((res) => {
       setAllEvents(res);
       setSelectedEvents(res);
+      setLoading(false);
     });
   }, []);
 
@@ -55,7 +59,7 @@ const AllEvents = () => {
       data: {
         isBookmarked,
       },
-    }).then(() => {
+    }, navigate).then(() => {
       const updatedEvents = allEvents.map((event) => {
         if (event.id === eventId) {
           return {
@@ -79,20 +83,19 @@ const AllEvents = () => {
     setFilter(value);
   };
 
-  return (
-    <div className="all-events-body">
-      <div className="control-panel">
-        <ControlPanel onSearchChange={handleSearch} onFilterChange={handleFilterChange} />
+  return (loading) ? (<div>Loading ...</div>)
+    : (
+      <div className="all-events-body">
+        <div className="control-panel">
+          <ControlPanel onSearchChange={handleSearch} onFilterChange={handleFilterChange} />
+        </div>
+        <div className="all-events-container">
+          {selectedEvents.map((event) => (
+            // eslint-disable-next-line max-len
+            <EventCard key={event.id} event={event} handleBookmarkChange={handleBookmarkChange} allowRegistration={false} />
+          ))}
+        </div>
       </div>
-      <div className="all-events-container">
-        {selectedEvents.map((event) => (
-          // eslint-disable-next-line max-len
-          <EventCard key={event.id} event={event} handleBookmarkChange={handleBookmarkChange} allowRegistration={false} />
-        ))}
-      </div>
-    </div>
-
-  );
+    );
 };
-
 export default AllEvents;

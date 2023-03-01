@@ -4,13 +4,20 @@ nav {
   font-weight: 500;
   font-size: 3rem;
   text-align: start;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 .logo {
   padding-left: 50px;
   font-family: 'Big Shoulders Inline Display', cursive;
+  color: white;
   font-weight: 500;
   font-size: 3rem;
   text-align: start;
   background: transparent;
   border: none;
+  height: max-content;
+  width: max-content;
 }

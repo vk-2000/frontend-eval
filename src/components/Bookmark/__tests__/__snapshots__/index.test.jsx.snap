@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bookmark should render correctly 1`] = `
+<DocumentFragment>
+  <button
+    data-testid="btn-bookmark"
+    type="button"
+  >
+    <img
+      alt="bookmark"
+      src="bookmark-regular.svg"
+    />
+  </button>
+</DocumentFragment>
+`;

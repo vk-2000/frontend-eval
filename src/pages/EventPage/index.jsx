@@ -1,10 +1,11 @@
 import React from 'react';
-import { Event, Navbar } from '../../components';
+import { Event, Footer, Navbar } from '../../components';
 
 const EventPage = () => (
   <div>
     <Navbar />
     <Event />
+    <Footer />
   </div>
 );
 
