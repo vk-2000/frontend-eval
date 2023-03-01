@@ -48,7 +48,20 @@ describe('EventCard', () => {
     expect(mockHandleRegistrationChange).toHaveBeenCalled();
   });
 
-  it('should call navigate when event card is clicked', () => {
+  it('should call navigate when event card is clicked and allowRegistration is false', () => {
+    const mockEvent = mockData[0];
+    const { getByTestId } = render(<EventCard
+      event={mockEvent}
+      handleBookmarkChange={jest.fn()}
+      handleRegistrationChange={jest.fn()}
+      allowRegistration={false}
+    />);
+    const card = getByTestId('event-card');
+    fireEvent.click(card);
+    expect(mockNavigate).toHaveBeenCalled();
+  });
+
+  it('should not call navigate when event card is clicked and allowRegistration is true', () => {
     const mockEvent = mockData[0];
     const { getByTestId } = render(<EventCard
       event={mockEvent}
@@ -58,6 +71,6 @@ describe('EventCard', () => {
     />);
     const card = getByTestId('event-card');
     fireEvent.click(card);
-    expect(mockNavigate).toHaveBeenCalled();
+    expect(mockNavigate).not.toHaveBeenCalled();
   });
 });

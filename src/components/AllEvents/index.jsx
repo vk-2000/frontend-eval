@@ -16,6 +16,8 @@ const AllEvents = () => {
 
   useEffect(() => {
     makeRequest(GET_ALL_EVENTS, {}, navigate).then((res) => {
+      const events = res;
+      events.sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
       setAllEvents(res);
       setSelectedEvents(res);
       setLoading(false);
@@ -92,7 +94,7 @@ const AllEvents = () => {
         <div className="all-events-container">
           {selectedEvents.map((event) => (
             // eslint-disable-next-line max-len
-            <EventCard key={event.id} event={event} handleBookmarkChange={handleBookmarkChange} allowRegistration={false} />
+            <EventCard key={event.id} event={event} handleBookmarkChange={handleBookmarkChange} handleRegistrationChange={() => {}} allowRegistration={false} />
           ))}
         </div>
       </div>

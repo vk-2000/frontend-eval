@@ -39,9 +39,14 @@ const EventCard = ({
     }
     return <div />;
   };
+  const handleCardClick = () => {
+    if (!allowRegistration) {
+      navigate(`events/${event.id}`);
+    }
+  };
 
   return (
-    <div onClick={() => navigate(`events/${event.id}`)} data-testid="event-card" className="event-card">
+    <div onClick={handleCardClick} data-testid="event-card" className="event-card">
       <div className="event-img-container">
         <img src={event.imgUrl} alt={event.name} className="event-img" />
       </div>

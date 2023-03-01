@@ -31,6 +31,18 @@
   color: #61dafb;
 }
 
+.theme1 {
+  background-color: #000000;
+}
+.theme2 {
+  background-color: #800080;
+}
+.theme3 {
+  background-color: #0000FF;
+}
+.theme4 {
+  background-color: #9B9999;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

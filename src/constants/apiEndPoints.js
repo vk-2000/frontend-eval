@@ -14,3 +14,8 @@ export const GET_EVENT_BY_ID = (id) => ({
   url: `events/${id}`,
   method: 'get',
 });
+
+export const GET_THEMES = {
+  url: 'themes',
+  method: 'get',
+};
