@@ -55,3 +55,11 @@
 .event-bookmark {
     flex-basis: 50%;
 }
+.btn-register {
+    width: 70%;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+}

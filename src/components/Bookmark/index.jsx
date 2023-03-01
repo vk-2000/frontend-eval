@@ -5,7 +5,7 @@ import regularBookmark from '../../assets/icons/bookmark-regular.svg';
 import './Bookmark.css';
 
 const Bookmark = ({ isBookmarked, onChange }) => (
-  <button onClick={onChange} type="button">
+  <button onClick={(e) => { e.stopPropagation(); onChange(); }} type="button">
     <img src={isBookmarked ? solidBookmark : regularBookmark} alt="bookmark" />
   </button>
 );

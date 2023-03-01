@@ -86,7 +86,8 @@ const AllEvents = () => {
       </div>
       <div className="all-events-container">
         {selectedEvents.map((event) => (
-          <EventCard key={event.id} event={event} handleBookmarkChange={handleBookmarkChange} />
+          // eslint-disable-next-line max-len
+          <EventCard key={event.id} event={event} handleBookmarkChange={handleBookmarkChange} allowRegistration={false} />
         ))}
       </div>
     </div>

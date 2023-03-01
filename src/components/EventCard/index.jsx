@@ -1,11 +1,20 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './EventCard.css';
+import { useNavigate } from 'react-router-dom';
 import Bookmark from '../Bookmark';
 import Registered from '../Registered';
 import NoSeatsAvailable from '../NoSeatsAvailable';
 
-const EventCard = ({ event, handleBookmarkChange }) => {
+const EventCard = ({
+  event,
+  handleBookmarkChange,
+  allowRegistration,
+  handleRegistrationChange,
+}) => {
+  const navigate = useNavigate();
   const handleChangeInBookmark = () => {
     handleBookmarkChange(event.id, !event.isBookmarked);
   };
@@ -22,8 +31,16 @@ const EventCard = ({ event, handleBookmarkChange }) => {
     }
     return <div />;
   };
+
+  const getRegistration = () => {
+    if (allowRegistration) {
+      return <button className="btn-register" onClick={(e) => { e.stopPropagation(); handleRegistrationChange(); }} type="button">{event.isRegistered ? 'Unregister' : 'Register'}</button>;
+    }
+    return <div />;
+  };
+
   return (
-    <div className="event-card">
+    <div onClick={() => navigate(`events/${event.id}`)} className="event-card">
       <div className="event-img-container">
         <img src={event.imgUrl} alt={event.name} className="event-img" />
       </div>
@@ -50,8 +67,9 @@ const EventCard = ({ event, handleBookmarkChange }) => {
         <div className="event-bookmard">
           <Bookmark isBookmarked={event.isBookmarked} onChange={handleChangeInBookmark} />
         </div>
-
       </div>
+      {getRegistration()}
+
     </div>
   );
 };
@@ -69,6 +87,8 @@ EventCard.propTypes = {
     isBookmarked: PropTypes.bool.isRequired,
   }).isRequired,
   handleBookmarkChange: PropTypes.func.isRequired,
+  handleRegistrationChange: PropTypes.func.isRequired,
+  allowRegistration: PropTypes.bool.isRequired,
 
 };
 
