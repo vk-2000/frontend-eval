@@ -1,0 +1,12 @@
+.no-seats-body {
+    color: #ECECAB;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.no-seats-body img {
+    height: 25px;
+    width: 25px;
+    padding: 5px;
+    filter: invert(92%) sepia(20%) saturate(627%) hue-rotate(13deg) brightness(110%) contrast(85%);
+}

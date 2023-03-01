@@ -1,0 +1,57 @@
+.event-card {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+}
+.event-img-container {
+    height: 200px;
+    width: 250px;
+}
+.event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.event-name {
+    height: 50px;
+    width: 100%;
+    font-family: 'Big Shoulders Text', cursive;
+    font-weight: bold;
+    font-size: x-large;
+    margin: 3px;
+}
+.event-description {
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 3px;
+}
+.event-venue {
+    width: 100%;
+    height: 50px;
+    margin: 3px;
+}
+.event-date {
+    width: 100%;
+    height: 50px;
+    margin: 3px;
+}
+.event-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.event-availability {
+    flex-basis: 50%;
+}
+.event-bookmark {
+    flex-basis: 50%;
+}

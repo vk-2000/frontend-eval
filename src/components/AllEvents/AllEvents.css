@@ -1,0 +1,18 @@
+.all-events-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.all-events-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+    column-gap: 50px;
+    flex-wrap: wrap;
+}
+.control-panel {
+    width: 100%;
+}

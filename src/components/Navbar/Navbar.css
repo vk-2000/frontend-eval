@@ -1,0 +1,16 @@
+nav {
+  height: 80px;
+  font-family: 'Big Shoulders Inline Display', cursive;
+  font-weight: 500;
+  font-size: 3rem;
+  text-align: start;
+}
+.logo {
+  padding-left: 50px;
+  font-family: 'Big Shoulders Inline Display', cursive;
+  font-weight: 500;
+  font-size: 3rem;
+  text-align: start;
+  background: transparent;
+  border: none;
+}

@@ -1,0 +1,12 @@
+.registered-body {
+    color: #A0F3AD;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.registered-body img {
+    height: 25px;
+    width: 25px;
+    padding: 5px;
+    filter: invert(90%) sepia(14%) saturate(948%) hue-rotate(67deg) brightness(98%) contrast(95%);
+}

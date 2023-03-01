@@ -1,0 +1,11 @@
+button {
+    background: transparent;
+    border: none;
+    height: 30px;
+    width: 30px;
+}
+button img {
+    height: 100%;
+    width: 100%;
+    filter: invert(81%) sepia(19%) saturate(7366%) hue-rotate(311deg) brightness(109%) contrast(91%);
+}
