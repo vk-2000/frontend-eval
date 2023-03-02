@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import './EventCard.css';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ import Bookmark from '../Bookmark';
 import Registered from '../Registered';
 import NoSeatsAvailable from '../NoSeatsAvailable';
 import getTime from '../../utils/common';
+import { ThemeContext } from '../../contexts/TemeContext';
 
 const EventCard = ({
   event,
@@ -19,6 +20,7 @@ const EventCard = ({
   const handleChangeInBookmark = () => {
     handleBookmarkChange(event.id, !event.isBookmarked);
   };
+  const { preferredThemeColor } = useContext(ThemeContext);
 
   const getInfo = () => {
     if (event.isRegistered) {
@@ -46,7 +48,7 @@ const EventCard = ({
   };
 
   return (
-    <div onClick={handleCardClick} data-testid="event-card" className="event-card">
+    <div style={{ backgroundColor: preferredThemeColor }} onClick={handleCardClick} data-testid="event-card" className="event-card">
       <div className="event-img-container">
         <img src={event.imgUrl} alt={event.name} className="event-img" />
       </div>

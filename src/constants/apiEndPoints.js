@@ -19,3 +19,7 @@ export const GET_THEMES = {
   url: 'themes',
   method: 'get',
 };
+export const UPDATE_THEME = {
+  url: 'themes',
+  method: 'put',
+};
